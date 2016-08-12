@@ -6,65 +6,51 @@ public class GameMath
 	private int losses = 0;
 	private int ties = 0;
 	
-	public static enum GameOutcome
-	{
-		WIN, LOSE, TIE;
-	}
-	
-	public GameOutcome getGameOutcome(String userChoice, String computerChoice)
+	public String getGameOutcome(String userChoice, String opponentChoice)
 	{
 		if(userChoice.equalsIgnoreCase("ROCK"))
 		{
-			if(computerChoice.equalsIgnoreCase("PAPER"))
+			if(opponentChoice.equalsIgnoreCase("PAPER"))
 			{
-				losses++;
-				return GameOutcome.LOSE;
+				return "lose";
 			}
-			else if(computerChoice.equalsIgnoreCase("SCISSORS"))
+			else if(opponentChoice.equalsIgnoreCase("SCISSORS"))
 			{
-				wins++;
-				return GameOutcome.WIN;	
+				return "win";	
 			}
-			else if(computerChoice.equalsIgnoreCase("ROCK"))
+			else if(opponentChoice.equalsIgnoreCase("ROCK"))
 			{
-				ties++;
-				return GameOutcome.TIE;
+				return "tie";
 			}
 		}
 		else if(userChoice.equalsIgnoreCase("PAPER"))
 		{
-			if(computerChoice.equalsIgnoreCase("SCISSORS"))
+			if(opponentChoice.equalsIgnoreCase("SCISSORS"))
 			{
-				losses++;
-				return GameOutcome.LOSE;
+				return "lose";
 			}
-			else if(computerChoice.equalsIgnoreCase("ROCK"))
+			else if(opponentChoice.equalsIgnoreCase("ROCK"))
 			{
-				wins++;
-				return GameOutcome.WIN;
+				return "win";
 			}
-			else if(computerChoice.equalsIgnoreCase("PAPER"))
+			else if(opponentChoice.equalsIgnoreCase("PAPER"))
 			{
-				ties++;
-				return GameOutcome.TIE;
+				return "tie";
 			}
 		}
 		else if(userChoice.equalsIgnoreCase("SCISSORS"))
 		{
-			if(computerChoice.equalsIgnoreCase("ROCK"))
+			if(opponentChoice.equalsIgnoreCase("ROCK"))
 			{
-				losses++;
-				return GameOutcome.LOSE;
+				return "lose";
 			}
-			else if(computerChoice.equalsIgnoreCase("PAPER"))
+			else if(opponentChoice.equalsIgnoreCase("PAPER"))
 			{
-				wins++;
-				return GameOutcome.WIN;
+				return "win";
 			}
-			else if(computerChoice.equalsIgnoreCase("SCISSORS"))
+			else if(opponentChoice.equalsIgnoreCase("SCISSORS"))
 			{
-				ties++;
-				return GameOutcome.TIE;
+				return "tie";
 			}
 		}
 		return null;
@@ -90,20 +76,5 @@ public class GameMath
 	public String notRandomChoice()
 	{
 		return "SCISSORS";
-	}
-
-	public int getWins()
-	{
-		return wins;
-	}
-
-	public int getLosses()
-	{
-		return losses;
-	}
-
-	public int getTies()
-	{
-		return ties;
 	}
 }
